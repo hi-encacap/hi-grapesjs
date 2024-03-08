@@ -33,5 +33,9 @@
     &-devices-c {
       @apply hidden;
     }
+
+    &-commands, &-views-container {
+      @apply shadow-none;
+    }
   }
 }
