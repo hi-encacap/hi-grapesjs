@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 
 import { Exclamation } from "@components/Icon";
 
-const UMToastIcon = ({ type }: IconProps) => {
+const ToastIcon = ({ type }: IconProps) => {
   return (
     <div
       className={twMerge(
@@ -24,6 +24,4 @@ const UMToastIcon = ({ type }: IconProps) => {
   );
 };
 
-const ToastIcon = memo(UMToastIcon);
-
-export default ToastIcon;
+export default memo(ToastIcon);
