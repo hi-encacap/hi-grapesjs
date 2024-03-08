@@ -1,10 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-be-vietnam-pro;
+@import "react-toastify/dist/ReactToastify.css";
+
+html {
+  @apply font-be-vietnam-pro text-message;
 }
 
+.spinner {
+  @apply z-10 animate-spin duration-200;
+
+  & .path {
+    @apply animate-dash stroke-inherit;
+  }
+}
+
+.Toastify {
+  &__toast {
+    @apply rounded-xl border-2 py-5 pl-5 pr-5 shadow-none;
+
+    &--success {
+      @apply border-green-primary-dark bg-green-primary-light;
+    }
+
+    &--error {
+      @apply border-red-primary-light bg-red-primary-extra-light;
+    }
+
+    &--info {
+      @apply border-blue-primary-light bg-blue-primary-extra-light;
+    }
+
+    &--warning {
+      @apply border-orange-primary-light bg-orange-primary-extra-light;
+    }
+
+    &-container {
+      @apply w-fit max-w-md;
+    }
+
+    &-body {
+      @apply items-start p-0;
+    }
+
+    &-icon {
+      @apply mr-6;
+    }
+  }
+}

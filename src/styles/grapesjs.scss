@@ -18,7 +18,7 @@
   }
 
   &-block {
-    @apply m-0 shadow-none border-gray-200 rounded-md w-full p-0;
+    @apply m-0 w-full rounded-md border-gray-200 p-0 shadow-none;
 
     &.gjs-one-bg:hover {
       @apply bg-gray-50;
@@ -28,5 +28,10 @@
       @apply shadow-none;
     }
   }
-}
 
+  &-pn {
+    &-devices-c {
+      @apply hidden;
+    }
+  }
+}

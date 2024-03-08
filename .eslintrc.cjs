@@ -3,18 +3,56 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:sonarjs/recommended",
+    "plugin:prettier/recommended",
   ],
-  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  ignorePatterns: ["node_modules", "dist", "**/*.cjs", "**/*.config.*", "**/*.prepare.*"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh"],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
+    tsconfigRootDir: __dirname,
+  },
+  settings: {
+    "import/resolver": {
+      typescript: true,
+    },
+  },
+  plugins: ["react-refresh", "formatjs"],
   rules: {
-    "react-refresh/only-export-components": [
-      "warn",
-      { allowConstantExport: true },
+    "import/order": [
+      "error",
+      {
+        groups: ["external", "index", "internal", "builtin", "object", "type", "parent", "sibling"],
+        "newlines-between": "always",
+      },
     ],
+    "react/function-component-definition": [
+      "error",
+      {
+        namedComponents: "arrow-function",
+      },
+    ],
+    "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
     "react-refresh/only-export-components": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: false,
+      },
+    ],
+    "@typescript-eslint/unbound-method": "off",
   },
 };
-

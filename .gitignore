@@ -6,11 +6,26 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+vite.config.ts.*
 
+# Misc
 node_modules
 dist
 dist-ssr
 *.local
+
+# Tests
+test
+
+# ENV
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.env.development
+.env.test
+.env.production
 
 # Editor directories and files
 .vscode/*
