@@ -1,50 +1,81 @@
 import { Editor } from "grapesjs";
 
+import { EditorComponentCategory, EditorComponentType } from "./constant";
+
 const atomicComponentPlugin = (editor: Editor) => {
-  editor.DomComponents.addType("div", {
+  editor.DomComponents.addType(EditorComponentType.DIV, {
     isComponent: (el) => el.tagName === "DIV",
     model: {
       defaults: {
         attributes: {
           class: "p-4",
-          category: "basic",
+          category: EditorComponentCategory.ATOMIC,
         },
-        tagName: "div",
+        tagName: EditorComponentType.DIV,
       },
     },
   });
 };
 
 const swiperComponentPlugin = (editor: Editor) => {
-  editor.DomComponents.addType("swiper-container", {
+  editor.DomComponents.addType(EditorComponentType.SWIPER_CONTAINER, {
     isComponent: (el) => el.tagName === "SWIPER-CONTAINER",
     model: {
       defaults: {
         attributes: {
           category: "basic",
         },
-        tagName: "swiper-container",
+        tagName: EditorComponentType.SWIPER_CONTAINER,
+        traits: [
+          {
+            type: "checkbox",
+            label: "Autoplay",
+            name: "autoplay",
+          },
+          {
+            type: "number",
+            label: "Speed",
+            name: "speed",
+            min: 0,
+          },
+          {
+            type: "number",
+            label: "Slides Per View",
+            name: "slides-per-view",
+            min: 1,
+          },
+          {
+            type: "checkbox",
+            label: "Pagination",
+            name: "pagination",
+          },
+        ],
       },
     },
   });
 
-  editor.DomComponents.addType("swiper-slide", {
+  editor.DomComponents.addType(EditorComponentType.SWIPER_SLIDE, {
     isComponent: (el) => el.tagName === "SWIPER-SLIDE",
     model: {
       defaults: {
         attributes: {
-          category: "basic",
+          category: EditorComponentCategory.ATOMIC,
         },
         components: [
           {
-            type: "div",
+            tagName: EditorComponentType.DIV,
+            type: EditorComponentType.TEXT,
+            content: "Slider Slide",
+            attributes: {
+              class: "w-full h-72 flex items-center justify-center",
+            },
           },
         ],
-        tagName: "swiper-slide",
+        tagName: EditorComponentType.SWIPER_SLIDE,
+        draggable: "swiper-container",
       },
     },
   });
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export { atomicComponentPlugin, swiperComponentPlugin };

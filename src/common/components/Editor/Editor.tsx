@@ -3,8 +3,9 @@ import grapesjs, { Editor as GrapesEditor } from "grapesjs";
 import { memo, useCallback, useEffect, useState } from "react";
 
 import "../../../styles/grapesjs.scss";
-import { atomicComponentPlugin } from "./plugin";
 import SidebarLeftBlock from "./Sidebar/Left/Block/Block";
+import { EditorComponentType } from "./constant";
+import { atomicComponentPlugin, swiperComponentPlugin } from "./plugin";
 
 const Editor = () => {
   const [editor, setEditor] = useState<GrapesEditor | null>(null);
@@ -19,17 +20,31 @@ const Editor = () => {
 
     blockManager.add("div", {
       label: "Div",
-      content: { type: "div" },
+      content: { type: EditorComponentType.DIV },
     });
+
+    blockManager.add("image", {
+      label: "Image",
+      content: { type: EditorComponentType.IMAGE },
+    });
+
     blockManager.add("slider", {
-      label: "Slider",
-      content: (
-        <swiper-container>
-          <swiper-slide>Slide 1.1</swiper-slide>
-          <swiper-slide>Slide 2.2</swiper-slide>
-          <swiper-slide>Slide 3.3</swiper-slide>
-        </swiper-container>
-      ) as unknown as string,
+      label: "Slider Container",
+      content: {
+        type: EditorComponentType.SWIPER_CONTAINER,
+        components: [
+          {
+            type: EditorComponentType.SWIPER_SLIDE,
+          },
+        ],
+      },
+    });
+
+    blockManager.add("slider-slide", {
+      label: "Slider Slide",
+      content: {
+        type: EditorComponentType.SWIPER_SLIDE,
+      },
     });
 
     setIsBlockInitiated(true);
@@ -58,7 +73,7 @@ const Editor = () => {
           },
           height: "100vh",
           storageManager: false,
-          plugins: [atomicComponentPlugin],
+          plugins: [atomicComponentPlugin, swiperComponentPlugin],
         }}
         grapesjs={grapesjs}
         onEditor={handleLoadEditor}

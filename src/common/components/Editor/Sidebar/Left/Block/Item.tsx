@@ -8,8 +8,6 @@ export interface SidebarLeftBlockItemProps {
 }
 
 const SidebarLeftBlockItem = ({ data, onDragStart, onDragEnd }: SidebarLeftBlockItemProps) => {
-  console.log(data);
-
   const handleDragStart = useCallback(() => {
     onDragStart(data);
   }, [data, onDragStart]);
@@ -24,7 +22,7 @@ const SidebarLeftBlockItem = ({ data, onDragStart, onDragEnd }: SidebarLeftBlock
       draggable
     >
       <div className="flex-1" />
-      <div className="bg-gray-100 py-2 text-slate-700">{data.getLabel()}</div>
+      <div className="bg-gray-100 pb-1.5 pt-2 text-slate-700">{data.getLabel()}</div>
     </div>
   );
 };
