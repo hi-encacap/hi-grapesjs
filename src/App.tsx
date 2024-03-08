@@ -1,12 +1,13 @@
 import { memo } from "react";
 
-import { Home } from "@features/home";
+import { Editor } from "@components/Editor";
 import { Provider } from "@providers/index";
+import "./styles/index.scss";
 
 const App = () => {
   return (
     <Provider>
-      <Home />
+      <Editor />
     </Provider>
   );
 };

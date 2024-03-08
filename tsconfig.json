@@ -24,6 +24,7 @@
       "@providers/*": ["src/common/providers/*"],
       "@features/*": ["src/features/*"],
       "@services/*": ["src/lib/services/*"],
+      "@styles/*": ["src/common/styles/*"],
       "@hooks/*": ["src/lib/hooks/*"],
       "@interfaces/*": ["src/lib/interfaces/*"],
       "@utils/*": ["src/lib/utils/*"],

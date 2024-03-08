@@ -20,6 +20,8 @@ const IntlProvider = ({ children }: IntlProviderProps) => {
     return <LoadingOverlay />;
   }
 
+  console.log(data.translation)
+
   return (
     <IntlProviderOriginal locale={data.code} messages={data.translation}>
       {children}

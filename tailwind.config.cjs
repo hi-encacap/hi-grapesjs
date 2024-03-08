@@ -32,6 +32,9 @@ module.exports = {
         "source-sans-3": ["Source Sans 3", "sans-serif"],
         "be-vietnam-pro": ["Be Vietnam Pro", "sans-serif"],
       },
+      height: {
+        0.75: "0.1875rem",
+      },
       keyframes: {
         dash: {
           "0%": { "stroke-dasharray": "1, 150", "stroke-dashoffset": 0 },

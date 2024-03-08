@@ -1,7 +1,10 @@
 {
   "dependencies": {
+    "@grapesjs/react": "^1.0.0",
     "@tanstack/react-query": "^5.17.15",
     "axios": "^1.6.5",
+    "grapesjs": "^0.21.8",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.314.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -14,6 +17,7 @@
     "@tanstack/eslint-plugin-query": "^5.17.7",
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
+    "@types/lodash": "^4.14.202",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
