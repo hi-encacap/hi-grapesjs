@@ -18,10 +18,10 @@
   }
 
   &-block {
-    @apply m-0 shadow-none border-gray-200 rounded-md w-full;
+    @apply m-0 shadow-none border-gray-200 rounded-md w-full p-0;
 
     &.gjs-one-bg:hover {
-      @apply bg-gray-100;
+      @apply bg-gray-50;
     }
 
     &:hover {

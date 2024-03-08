@@ -14,11 +14,11 @@ const SidebarLeftBlock = ({ editor }: SidebarLeftBlockProps) => {
   return (
     <div className="w-72 border-r-2 border-gray-100 h-screen">
       <SidebarLeftBlockHeader />
-      <div className="">
+      <div className="p-4 gjs-blocks-container">
         <SidebarLeftBlockDefaultComponent
           blocks={blocks}
-          onDragEnd={blockManager.endDrag}
-          onDragStart={blockManager.startDrag}
+          onDragEnd={blockManager.endDrag.bind(blockManager)}
+          onDragStart={blockManager.startDrag.bind(blockManager)}
         />
       </div>
     </div>

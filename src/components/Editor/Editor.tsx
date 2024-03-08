@@ -36,6 +36,7 @@ const Editor = () => {
   return (
     <div className="flex w-screen h-screen">
       {editor && isBlockInitiated && <SidebarLeftBlock editor={editor} />}
+      <div className="gjs"></div>
       <GjsEditor
         className="flex-1"
         options={{

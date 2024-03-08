@@ -7,6 +7,7 @@ const typePlugin = (editor: Editor) => {
       defaults: {
         attributes: {
           class: "p-4",
+          category: "basic",
         },
         tagName: "div",
       },

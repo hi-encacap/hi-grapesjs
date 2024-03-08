@@ -21,13 +21,14 @@ const SidebarLeftBlockItem = ({
   return (
     <div
       id={data.getId()}
-      className="gjs-block gjs-one-bg gjs-four-color-h"
+      className="gjs-block gjs-one-bg gjs-four-color-h flex flex-col"
       title={data.getLabel()}
       onDragStart={handleDragStart}
       onDragEnd={onDragEnd}
       draggable
     >
-      <div>{data.getLabel()}</div>
+      <div className="flex-1" />
+      <div className="py-2 bg-gray-100 text-slate-700">{data.getLabel()}</div>
     </div>
   );
 };

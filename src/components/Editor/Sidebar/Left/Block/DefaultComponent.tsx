@@ -13,7 +13,7 @@ const SidebarLeftBlockDefaultComponent = ({
   onDragEnd,
 }: SidebarLeftBlockDefaultComponentProps) => {
   return (
-    <div>
+    <div className="grid grid-cols-2 gap-4">
       {blocks.map((item) => (
         <SidebarLeftBlockItem
           key={item.getLabel().toLowerCase()}
