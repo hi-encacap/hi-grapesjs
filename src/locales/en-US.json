@@ -1,5 +1,6 @@
 {
   "components": "Components",
   "default": "Default",
-  "your_components": "Your Components"
+  "my_components": "My Components",
+  "save": "Save"
 }

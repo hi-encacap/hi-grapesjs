@@ -34,8 +34,27 @@
       @apply hidden;
     }
 
-    &-commands, &-views-container {
+    &-commands,
+    &-views-container {
       @apply shadow-none;
     }
+
+    &-commands,
+    &-options,
+    &-views {
+      @apply flex h-12 items-center border-b-2 border-gray-100;
+    }
+
+    &-views {
+      @apply border-l-2;
+    }
+
+    &-views-container {
+      @apply border-l-2 border-gray-100;
+    }
+  }
+
+  &-cv-canvas {
+    @apply top-0 mt-12 h-[calc(100vh_-_3rem)];
   }
 }

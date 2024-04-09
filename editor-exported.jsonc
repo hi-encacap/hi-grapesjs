@@ -1,0 +1,50 @@
+{
+  "frames": [
+    {
+      "component": {
+        "type": "wrapper",
+        "stylable": [
+          "background",
+          "background-color",
+          "background-image",
+          "background-repeat",
+          "background-attachment",
+          "background-position",
+          "background-size",
+        ],
+        "components": [
+          {
+            "type": "swiper-container",
+            "attributes": {
+              "category": "basic",
+              "id": "ikb2",
+              "autoplay": true,
+              "speed": "100",
+              "slides-per-view": "2",
+              "pagination": true,
+            },
+            "components": [
+              {
+                "type": "swiper-slide",
+                "attributes": {
+                  "category": "atomic",
+                },
+                "components": [
+                  {
+                    "type": "text",
+                    "content": "Slider Slide",
+                    "classes": ["w-full", "h-72", "flex", "items-center", "justify-center"],
+                    "attributes": {
+                      "data-encacap-id": "slider-slide",
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      "id": "sm1f8MhwkWZTlA5Z",
+    },
+  ],
+}
