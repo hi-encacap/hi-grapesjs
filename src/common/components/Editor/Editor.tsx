@@ -4,7 +4,7 @@ import { memo, useCallback, useEffect, useRef, useState } from "react";
 import "../../../styles/grapesjs.scss";
 import EditorHeader from "./Header/Header";
 import SidebarLeftBlock from "./Sidebar/Left/Block/Block";
-import { initiateBlocks } from "./helper";
+import { initiateBlocks, initiateCommands, initiateEvents } from "./helper";
 import { atomicComponentPlugin, swiperComponentPlugin } from "./plugin";
 
 const Editor = () => {
@@ -21,12 +21,23 @@ const Editor = () => {
           "https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js",
         ],
       },
-      height: "100vh",
-      storageManager: false,
+      height: "100%",
       plugins: [atomicComponentPlugin, swiperComponentPlugin],
+      panels: {
+        defaults: [
+          {
+            id: "options",
+            visible: false,
+          },
+        ],
+      },
     });
 
     initiateBlocks(editor, () => setIsBlockInitiated(true));
+    initiateEvents(editor);
+    initiateCommands(editor);
+
+    editor.runCommand("sw-visibility");
 
     return editor;
   }, []);
@@ -60,11 +71,11 @@ const Editor = () => {
   }, [initiateEditor]);
 
   return (
-    <div className="flex h-screen w-screen">
-      {isBlockInitiated && <SidebarLeftBlock editor={editorRef.current!} />}
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <EditorHeader onClickSave={handleClickSave} />
-        <div className="gjs" />
+    <div className="flex h-screen w-screen flex-col">
+      <EditorHeader onClickSave={handleClickSave} />
+      <div className="flex flex-1 overflow-hidden">
+        {isBlockInitiated && <SidebarLeftBlock editor={editorRef.current!} />}
+        <div className="gjs p-4" />
       </div>
     </div>
   );

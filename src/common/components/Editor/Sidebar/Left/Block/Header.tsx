@@ -15,7 +15,7 @@ const SidebarLeftBlockHeader = () => {
       </div>
       <div className="flex h-12 items-center justify-between border-b-2 border-gray-100 px-4">
         <SidebarLeftBlockHeaderTabItem isActive title={formatMessage({ id: "default" })} />
-        <SidebarLeftBlockHeaderTabItem isActive={false} title={formatMessage({ id: "my_components" })} />
+        <SidebarLeftBlockHeaderTabItem isActive={false} title={formatMessage({ id: "your_components" })} />
       </div>
     </div>
   );

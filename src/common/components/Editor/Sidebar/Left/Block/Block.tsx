@@ -16,7 +16,7 @@ const SidebarLeftBlock = ({ editor }: SidebarLeftBlockProps) => {
   const handleDragStart = useMemo(() => blockManager.startDrag.bind(blockManager), [blockManager]);
 
   return (
-    <div className="h-screen w-80 border-r-2 border-gray-100">
+    <div className="h-screen w-72 flex-shrink-0 border-r-2 border-gray-100">
       <SidebarLeftBlockHeader />
       <div className="gjs-blocks-container p-4">
         <SidebarLeftBlockDefaultComponent

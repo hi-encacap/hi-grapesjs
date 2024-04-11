@@ -11,3 +11,8 @@ export enum EditorComponentCategory {
   ATOMIC = "atomic",
   BASIC = "basic",
 }
+
+export enum EditorCommand {
+  TLB_CLONE = "tlb-clone",
+  TLB_CUSTOM_CLONE = "tlb-custom-clone",
+}
