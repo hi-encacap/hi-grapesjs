@@ -8,6 +8,10 @@ html {
   @apply font-be-vietnam-pro text-message;
 }
 
+select {
+  @apply appearance-none;
+}
+
 .spinner {
   @apply z-10 animate-spin duration-200;
 

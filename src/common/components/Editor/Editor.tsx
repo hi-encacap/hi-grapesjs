@@ -1,14 +1,17 @@
-import grapesjs, { Editor as GrapesEditor } from "grapesjs";
+import grapesjs, { Component, Editor as GrapesEditor } from "grapesjs";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 
 import "../../../styles/grapesjs.scss";
+
 import EditorHeader from "./Header/Header";
 import SidebarLeftBlock from "./Sidebar/Left/Block/Block";
+import SidebarRight from "./Sidebar/Right/SidebarRight";
 import { initiateBlocks, initiateCommands, initiateEvents } from "./helper";
 import { atomicComponentPlugin, swiperComponentPlugin } from "./plugin";
 
 const Editor = () => {
   const [isBlockInitiated, setIsBlockInitiated] = useState(false);
+  const [selectedComponent, setSelectedComponent] = useState<Component | null>(null);
 
   const editorRef = useRef<GrapesEditor | null>(null);
 
@@ -38,6 +41,7 @@ const Editor = () => {
     initiateCommands(editor);
 
     editor.runCommand("sw-visibility");
+    editor.on("component:selected", (component: Component) => setSelectedComponent(component));
 
     return editor;
   }, []);
@@ -76,6 +80,7 @@ const Editor = () => {
       <div className="flex flex-1 overflow-hidden">
         {isBlockInitiated && <SidebarLeftBlock editor={editorRef.current!} />}
         <div className="gjs p-4" />
+        <SidebarRight component={selectedComponent} />
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { Editor } from "grapesjs";
 import { memo, useMemo } from "react";
 
 import SidebarLeftBlockDefaultComponent from "./DefaultComponent";
-import SidebarLeftBlockHeader from "./Header";
+import SidebarHeader from "./Header";
 
 interface SidebarLeftBlockProps {
   editor: Editor;
@@ -17,7 +17,7 @@ const SidebarLeftBlock = ({ editor }: SidebarLeftBlockProps) => {
 
   return (
     <div className="h-screen w-72 flex-shrink-0 border-r-2 border-gray-100">
-      <SidebarLeftBlockHeader />
+      <SidebarHeader />
       <div className="gjs-blocks-container p-4">
         <SidebarLeftBlockDefaultComponent
           blocks={blocks}

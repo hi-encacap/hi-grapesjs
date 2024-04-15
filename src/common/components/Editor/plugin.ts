@@ -1,11 +1,11 @@
 import { Editor } from "grapesjs";
 
-import { EditorCommand, EditorComponentCategory, EditorComponentType } from "./constant";
+import { EditorComponentCategory, EditorComponentType } from "./constant";
 
 const atomicComponentPlugin = (editor: Editor) => {
-  const defaultComponentType = editor.DomComponents.getType("default");
+  // const defaultComponentType = editor.DomComponents.getType("default");
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const defaultComponentTypeModel = defaultComponentType.model;
+  // const defaultComponentTypeModel = defaultComponentType.model;
 
   editor.DomComponents.addType(EditorComponentType.DIV, {
     isComponent: (el) => el.tagName === "DIV",
@@ -18,22 +18,22 @@ const atomicComponentPlugin = (editor: Editor) => {
         tagName: EditorComponentType.DIV,
       },
 
-      initToolbar() {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, prefer-rest-params
-        defaultComponentTypeModel.prototype.initToolbar.apply(this, arguments);
+      // initToolbar() {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, prefer-rest-params
+      //   defaultComponentTypeModel.prototype.initToolbar.apply(this, arguments);
 
-        const toolbar = this.get("toolbar");
+      //   const toolbar = this.get("toolbar");
 
-        if (!toolbar) return;
+      //   if (!toolbar) return;
 
-        const cloneToolbar = toolbar.find((item) => item.command === EditorCommand.TLB_CLONE);
+      //   const cloneToolbar = toolbar.find((item) => item.command === EditorCommand.TLB_CLONE);
 
-        if (cloneToolbar) {
-          cloneToolbar.command = EditorCommand.TLB_CUSTOM_CLONE;
-        }
+      //   if (cloneToolbar) {
+      //     cloneToolbar.command = EditorCommand.TLB_CUSTOM_CLONE;
+      //   }
 
-        this.set("toolbar", toolbar);
-      },
+      //   this.set("toolbar", toolbar);
+      // },
 
       // init() {
       //   this.on("component:update", (model) => {

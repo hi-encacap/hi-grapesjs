@@ -1,6 +1,13 @@
 {
+  "attribute": "Attribute",
+  "class": "Class",
   "components": "Components",
+  "data": "Data",
   "default": "Default",
-  "your_components": "Your Components",
-  "save": "Save"
+  "no_state": "No State",
+  "save": "Save",
+  "settings": "Settings",
+  "state": "State",
+  "style": "Style",
+  "your_components": "Your Components"
 }
