@@ -6,7 +6,7 @@ import "../../../styles/grapesjs.scss";
 import EditorHeader from "./Header/Header";
 import SidebarLeftBlock from "./Sidebar/Left/Block/Block";
 import SidebarRight from "./Sidebar/Right/SidebarRight";
-import { initiateBlocks, initiateCommands, initiateEvents } from "./helper";
+import { initiateBlocks, initiateCommands } from "./helper";
 import { atomicComponentPlugin, swiperComponentPlugin } from "./plugin";
 
 const Editor = () => {
@@ -14,6 +14,20 @@ const Editor = () => {
   const [selectedComponent, setSelectedComponent] = useState<Component | null>(null);
 
   const editorRef = useRef<GrapesEditor | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const zoomContainer = useCallback(() => {
+    const container = containerRef.current!;
+    const originalWidth = container.offsetWidth;
+    const originalHeight = container.offsetHeight;
+    const scale = 0.8;
+
+    container.style.transform = `scale(${scale})`;
+    container.style.transformOrigin = "top left";
+    // Keep the original size of the container.
+    container.style.width = `${originalWidth / scale}px`;
+    container.style.height = `${originalHeight / scale}px`;
+  }, []);
 
   const initiateEditor = useCallback(() => {
     const editor = grapesjs.init({
@@ -36,8 +50,7 @@ const Editor = () => {
       },
     });
 
-    initiateBlocks(editor, () => setIsBlockInitiated(true));
-    initiateEvents(editor);
+    initiateBlocks(editor);
     initiateCommands(editor);
 
     editor.runCommand("sw-visibility");
@@ -72,14 +85,23 @@ const Editor = () => {
     if (editorRef.current) return;
 
     editorRef.current = initiateEditor();
+    setIsBlockInitiated(true);
   }, [initiateEditor]);
+
+  useEffect(() => {
+    if (isBlockInitiated) {
+      zoomContainer();
+    }
+  }, [isBlockInitiated, zoomContainer]);
 
   return (
     <div className="flex h-screen w-screen flex-col">
       <EditorHeader onClickSave={handleClickSave} />
       <div className="flex flex-1 overflow-hidden">
         {isBlockInitiated && <SidebarLeftBlock editor={editorRef.current!} />}
-        <div className="gjs p-4" />
+        <div className="flex-1 overflow-hidden p-4">
+          <div className="gjs" ref={containerRef} />
+        </div>
         <SidebarRight component={selectedComponent} />
       </div>
     </div>

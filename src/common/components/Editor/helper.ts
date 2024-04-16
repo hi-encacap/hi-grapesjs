@@ -4,7 +4,7 @@ import { cloneComponent } from "@utils/grapes/component";
 
 import { EditorCommand, EditorComponentCategory, EditorComponentType } from "./constant";
 
-const initiateBlocks = (editor: Editor, onFinish: VoidFunction) => {
+const initiateBlocks = (editor: Editor) => {
   const blockManager = editor.Blocks;
 
   blockManager.add("div", {
@@ -50,20 +50,6 @@ const initiateBlocks = (editor: Editor, onFinish: VoidFunction) => {
       type: EditorComponentType.SWIPER_SLIDE,
     },
   });
-
-  onFinish();
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const initiateEvents = (editor: Editor) => {
-  // editor.on("component:create", (component: Component) => {
-  //   const id = component.getId();
-  //   const attributes = component.getAttributes();
-  //   const idAttribute = (attributes["data-p-id"] as string) || id;
-  //   component.setAttributes({
-  //     "data-p-id": idAttribute,
-  //   });
-  // });
 };
 
 const initiateCommands = (editor: Editor) => {
@@ -84,4 +70,4 @@ const initiateCommands = (editor: Editor) => {
   });
 };
 
-export { initiateBlocks, initiateCommands, initiateEvents };
+export { initiateBlocks, initiateCommands };
