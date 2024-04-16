@@ -39,7 +39,7 @@ const atomicComponentPlugin = (editor: Editor) => {
       //   this.on("component:update", (model) => {
       //     if (!model) return;
 
-      //     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       //     const component = model.component as Component;
       //     const refComponents = editor.getComponents();
 

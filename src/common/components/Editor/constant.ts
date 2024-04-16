@@ -10,6 +10,7 @@ export enum EditorComponentType {
 export enum EditorComponentCategory {
   ATOMIC = "atomic",
   BASIC = "basic",
+  SLIDER = "slider",
 }
 
 export enum EditorCommand {

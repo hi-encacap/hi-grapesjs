@@ -38,6 +38,7 @@ module.exports = {
       },
     ],
     "import/prefer-default-export": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
     "react/function-component-definition": [
       "error",
       {

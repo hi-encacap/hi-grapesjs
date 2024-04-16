@@ -2,18 +2,20 @@ import { Editor } from "grapesjs";
 
 import { cloneComponent } from "@utils/grapes/component";
 
-import { EditorCommand, EditorComponentType } from "./constant";
+import { EditorCommand, EditorComponentCategory, EditorComponentType } from "./constant";
 
 const initiateBlocks = (editor: Editor, onFinish: VoidFunction) => {
   const blockManager = editor.Blocks;
 
   blockManager.add("div", {
     label: "Div",
+    category: EditorComponentCategory.ATOMIC,
     content: { type: EditorComponentType.DIV },
   });
 
   blockManager.add("image", {
     label: "Image",
+    category: EditorComponentCategory.ATOMIC,
     content: {
       type: EditorComponentType.IMAGE,
     },
@@ -21,6 +23,7 @@ const initiateBlocks = (editor: Editor, onFinish: VoidFunction) => {
 
   blockManager.add("text", {
     label: "Text",
+    category: EditorComponentCategory.ATOMIC,
     content: {
       type: EditorComponentType.TEXT,
       content: "Insert your text here",
@@ -29,6 +32,7 @@ const initiateBlocks = (editor: Editor, onFinish: VoidFunction) => {
 
   blockManager.add("slider", {
     label: "Slider Container",
+    category: EditorComponentCategory.SLIDER,
     content: {
       type: EditorComponentType.SWIPER_CONTAINER,
       components: [
@@ -41,6 +45,7 @@ const initiateBlocks = (editor: Editor, onFinish: VoidFunction) => {
 
   blockManager.add("slider-slide", {
     label: "Slider Slide",
+    category: EditorComponentCategory.SLIDER,
     content: {
       type: EditorComponentType.SWIPER_SLIDE,
     },
